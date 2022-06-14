@@ -253,6 +253,8 @@ CMD is an instruction that is best to use if you need a default command which us
 
 On the other hand, ENTRYPOINT is preferred when you want to define a container with a specific executable.
 
+🌍  I'm based in India
+
 
 
 
