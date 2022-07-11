@@ -1,4 +1,4 @@
-# Kubernetes StatefulSet explained
+# Kubernetes StatefulSet vs Stateless explained
 
 - **What is StatefulSet?**
 
