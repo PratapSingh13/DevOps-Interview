@@ -219,6 +219,7 @@ Fri Apr 1 06:05:13 UTC 2022 container running
 
 
   **The entrypoint Command**
+  
   As we saw above, cmd is ignored if passing any arguments when starting the container. What if we want more flexibility? Let's say we want to customize the appended text and pass it as an argument to the docker run command. For this purpose, let's use entrypoint. We'll specify the default command to run when the container starts. Moreover, we're now able to provide extra arguments.
 
   Let's replace the cmd entry in our Dockerfile with entrypoint:
