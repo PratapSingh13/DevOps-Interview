@@ -30,9 +30,9 @@
 
 - **What is the role of kube-apiserver and kube-scheduler?**
 
-**kube – apiserver** follows the scale-out architecture and, is the front-end of the master node control panel. This exposes all the APIs of the Kubernetes Master node components and is responsible for establishing communication between Kubernetes Node and the Kubernetes master components.
+  **kube – apiserver** follows the scale-out architecture and, is the front-end of the master node control panel. This exposes all the APIs of the Kubernetes Master node components and is responsible for establishing communication between Kubernetes Node and the Kubernetes master components.
 
-**kube-scheduler** is responsible for the distribution and management of workload on the worker nodes. So, it selects the most suitable node to run the unscheduled pod based on resource requirement and keeps a track of resource utilization. It makes sure that the workload is not scheduled on nodes that are already full.
+  **kube-scheduler** is responsible for the distribution and management of workload on the worker nodes. So, it selects the most suitable node to run the unscheduled pod based on resource requirement and keeps a track of resource utilization. It makes sure that the workload is not scheduled on nodes that are already full.
 
 - **What is Kubernetes controller manager?**
 
@@ -61,9 +61,9 @@
  
 - **What is ClusterIP,  NodePort,  Ingress and  LoadBalancer?**
    
-  - Using Kubernetes proxy and ClusterIP: The default Kubernetes ServiceType is ClusterIp, which exposes the Service on a cluster-internal IP. To reach the ClusterIp from an external source, you can open a Kubernetes proxy between the external source and the cluster. This is usually only used for development.
+  - Using Kubernetes proxy and ClusterIP: The default Kubernetes service type is ClusterIp, which exposes the Service on a cluster-internal IP. To reach the ClusterIp from an external source, you can open a Kubernetes proxy between the external source and the cluster. This is usually only used for development.
 
-  - Exposing services as NodePort: Declaring a Service as NodePortexposes it on each Node’s IP at a static port (referred to as the NodePort). You can then access the Service from outside the cluster by requesting <NodeIp>:<NodePort>. This can also be used for production, albeit with some limitations.
+  - Exposing services as NodePort: Declaring a Service as NodePort exposes it on each Node’s IP at a static port (referred to as the NodePort). You can then access the Service from outside the cluster by requesting <NodeIp>:<NodePort>. This can also be used for production, albeit with some limitations.
   default range of nodeport is 30000-32767
 
   - Exposing services as LoadBalancer: Declaring a Service as LoadBalancer exposes it externally, using a cloud provider’s load balancer solution. The cloud provider will provision a load balancer for the Service, and map it to its automatically assigned NodePort. This is the most widely used method in production environments.
@@ -71,8 +71,11 @@
 - **What is Ingress?**
   Ingress isn’t a type of Service, but rather an object that acts as a reverse proxy and single entry-point to your cluster that routes the request to different services. The most basic Ingress is the NGINX Ingress Controller, where the NGINX takes on the role of reverse proxy, while also functioning as SSL.
 
+- **What are different kinds of services in Kubernetes?**
+  ![](../images/services.png)
+
 - **What is difference between ReplicaSet and ReplicationController?**
-  Replica Set and Replication Controller do almost the same thing. Both of them ensure that a specified number of pod replicas are running at any given time. The difference comes with the usage of selectors to replicate pods. Replica Set use Set-Based selectors while replication controllers use Equity-Based selectors.
+  Replica Set and Replication Controller both are almost the same thing. Both of them ensure that a specified number of pod replicas are running at any given time. The difference comes with the usage of selectors to replicate pods. Replica Set use Set-Based selectors while replication controllers use Equality-Based selectors.
 
 
 ### Contributors
