@@ -69,17 +69,44 @@
   - Exposing services as LoadBalancer: Declaring a Service as LoadBalancer exposes it externally, using a cloud provider’s load balancer solution. The cloud provider will provision a load balancer for the Service, and map it to its automatically assigned NodePort. This is the most widely used method in production environments.
 
 - **What is Ingress?**
+
   Ingress isn’t a type of Service, but rather an object that acts as a reverse proxy and single entry-point to your cluster that routes the request to different services. The most basic Ingress is the NGINX Ingress Controller, where the NGINX takes on the role of reverse proxy, while also functioning as SSL.
 
 - **What are different kinds of services in Kubernetes?**
   ![](../images/services.png)
 
 - **What is difference between ReplicaSet and ReplicationController?**
+
   Replica Set and Replication Controller both are almost the same thing. Both of them ensure that a specified number of pod replicas are running at any given time. The difference comes with the usage of selectors to replicate pods. Replica Set use Set-Based selectors while replication controllers use Equality-Based selectors.
+
+  ReplicaSets can be used independently, today it’s mainly used by Deployments as a mechanism to orchestrate pod creation, deletion, and updates.
+
+  **ReplicationController** -> environment = production
+  **ReplicaSet** -> environment in (prod, test)
+
+  Here in **ReplicationController** example it selects all resources with key equal to *environment* and value equals to *production*
+  But in **ReplicaSet** example it selects all resources with key equal to *environment* and value equals to *prod* or *test*
+
+- **What is init containers ?**
+
+  **Init containers** run before the **regular containers**, usually to prepare a config or make some changes in the environment which regular container/s will need on startup.
+
+  **Regular containers** start only AFTER **init container/s** successfully completed their work.
+
+  **Use Case of init containers**
+
+  If you want to configure your application setup to wait until the DB is up and running before it starts: you will have a regular container with your app and an init container that sends some discovery commands to DB.
+
+  So once it gets a response from DB, it will exit and the regular app container can start.
+
+
+
+
+
 
 
 ### Contributors
 [![Yogendra Pratap Singh][yogendra_avatar]][yogendra_homepage]<br/>[Yogendra Pratap Singh][yogendra_homepage] 
 
-  [yogendra_homepage]: https://github.com/PratapSingh13
+  [yogendra_homepage]: https://www.linkedin.com/in/yogendra-pratap-singh-41630716b/
   [yogendra_avatar]: https://img.cloudposse.com/75x75/https://github.com/PratapSingh13.png
