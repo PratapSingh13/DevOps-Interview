@@ -87,6 +87,10 @@
   Here in **ReplicationController** example it selects all resources with key equal to *environment* and value equals to *production*
   But in **ReplicaSet** example it selects all resources with key equal to *environment* and value equals to *prod* or *test*
 
+- **How to delete replication controller but do not delete pods from that replication controller?**
+
+  ```kubectl delete rc --cascade=false <replicationControllerName> --namespace```
+
 - **What is init containers ?**
 
   **Init containers** run before the **regular containers**, usually to prepare a config or make some changes in the environment which regular container/s will need on startup.
@@ -99,10 +103,60 @@
 
   So once it gets a response from DB, it will exit and the regular app container can start.
 
+-  **What is a Container Runtime?**
+
+  A system that is running containers is only doing so because of its container runtime. The container runtime is the software installed on a host system that allows it to isolate its resources for containers, pull down container images, and manage the lifecycle of containers.
+
+  With respect to Kubernetes, a container runtime is required on every node in your cluster. Without it, pods in Kubernetes are non-existent.
+
+- **How to do maintenance activity on the K8 node**
+
+  ```bash
+    kubectl cordon
+    kubectl drain –ignore-daemon set
+  ```
+
+- **How to change k8s default namespace with something else namespace apart from 'default'**
+
+  ```bash
+    kubectl config set-context --current --namespace=<namespace name>
+  ```
+
+- **Can we fix resource limits in a namespace if yes then how**
+
+  Yes we can fix using resourceQuota.
+
+- **How many types of resourceQuota we can use?**
+
+    - Object Quota
+
+    - Compute Quota
+
+- **Can we give limitResource without specifiying requestResource if yes then what will be the requestResource?**
+
+  Yes we can do this but if we used resorceQuota in a namespace then the requestResource will be same as limitResource by default.
+
+- **Can we give requestResource without specifiying limitResource if yes then what will be the limitResource?**
+
+  No we can not do this if we used resourceQuota in a namespace.
+
+- **How do you rollback you application deployment version to previous version?*
+
+  ```bash
+    kubectl rollout history deployment <deployment-name>
+    kubectl rollout undo deployment < deployment-name>
+  ```
+
+- **How do you rollback you application deployment version to a specific version?**
+
+  ```bash
+    kubectl rollout history deployment <deployment-name>
+    kubectl rollout undo --to-revision=<number of specific version> deployment < deployment-name>
+  ```
 
 
 ### Contributors
 [![Yogendra Pratap Singh][yogendra_avatar]][yogendra_homepage]<br/>[Yogendra Pratap Singh][yogendra_homepage] 
 
   [yogendra_homepage]: https://www.linkedin.com/in/yogendra-pratap-singh-41630716b/
-  [yogendra_avatar]: https://img.cloudposse.com/75x75/https://www.linkedin.com/in/yogendra-pratap-singh-41630716b.png
+  [yogendra_avatar]: https://img.cloudposse.com/75x75/https://github.com/PratapSingh13.png
