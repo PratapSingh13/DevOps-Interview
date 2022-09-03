@@ -1,0 +1,54 @@
+How would you conduct RCA for sudden surge of RAM on a linux server and ensure it doesn't repeat?
+
+If I talk about how I will conduct RCA for sudden surge of RAM on a linux server so for this I will check the log entry that will be generated usually available in /var/log/ location. 
+using the command grep -i -r 'out of memory' /var/log/
+
+To check the current memory usage in the server. we can use the command “free” to find the current memory usage in the server.
+using the command free -m 
+
+The history of memory usage for the day can be found by using the “sar” command.
+using the command sar -r
+
+Another good tool to identify the Memory consuming processes is the “top” or "htop" command, 
+which will give us the option to sort the running processes based on its resource usages.
+
+using the command top -c
+
+Tackle the memory overload
+We can find the server time at which this ‘out of memory’ was reported, suppose here it is “Jul 29 10:24:05”. 
+Use grep command to search this timestamp in the log files for your application servers like Apache, MySQL etc.
+
+using the command grep  -ir “29/Jul/2022:10:2”  /usr/local/apache/domlogs/
+
+A RAM upgrade is necessary if the server shows consistent high memory usage or the average usage for the day is more than 90% as such a high usage can deplete the available free memory at times for a busy server.
+
+How can you identify listening ports on a Centos EC2 instance without AWS console or ssh access?
+Bash has been able to access TCP and UDP ports for a while.
+So for this we can use
+cat < /dev/tcp/127.0.0.1/22
+SSH-2.0-OpenSSH_6.2p2 Debian-6
+^C pressed here
+
+
+Please Describe 2 automations/scripts that you have developed. Provide as much detail as you can?
+1.  I have created production grade terraform IaaC scripts which creates AWS VPC, Route Tables, NAT Gateway, Internet Gateway, AWS EC2 servers, Security Groups, AWS RDS etc.
+    AWS EC2 server will use custom AMIs which will be created using Packer by me.
+2.  Created a utility which setup MongoDB master-slave replication setup using Ansible
+
+How can you setup 50 EC2 instances on AWS with auto setting of hostname for each instance?
+So for this if we have a public DNS name registered for the IP address of our instance (such as dbserver.abc.com), we can set the system hostname so our instance identifies itself as a part of that domain.
+In order for our hostname update to persist, we must verify that the preserve_hostname cloud-init setting is set to true. 
+using the command sudo vi /etc/cloud/cloud.cfg
+
+If the preserve_hostname setting is not listed, we can add the  line of text to the end of the file:
+preserve_hostname: true
+
+To change the system hostname to a public DNS name
+Use the hostnamectl command to set your hostname to reflect the fully qualified domain name (such as dbserver.abc.com).
+sudo hostnamectl set-hostname dbserver.abc.com
+Then reboot the instance.
+
+
+How do you scan your infrastructure to check if a specific vulnerability exists in any Linux host?
+For vulnerability check we can use OpenVAS or OpenSCAP otherwise for infrastructure level we can check security groups and their inbound and outbound rules and also check for NACL for security checks.
+
