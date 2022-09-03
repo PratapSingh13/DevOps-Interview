@@ -103,7 +103,7 @@
 
   So once it gets a response from DB, it will exit and the regular app container can start.
 
--  **What is a Container Runtime?**
+- **What is a Container Runtime?**
 
   A system that is running containers is only doing so because of its container runtime. The container runtime is the software installed on a host system that allows it to isolate its resources for containers, pull down container images, and manage the lifecycle of containers.
 
@@ -140,7 +140,7 @@
 
   No we can not do this if we used resourceQuota in a namespace.
 
-- **How do you rollback you application deployment version to previous version?*
+- **How do you rollback you application deployment version to previous version?**
 
   ```bash
     kubectl rollout history deployment <deployment-name>
