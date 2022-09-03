@@ -68,7 +68,7 @@
 
   - Exposing services as LoadBalancer: Declaring a Service as LoadBalancer exposes it externally, using a cloud provider’s load balancer solution. The cloud provider will provision a load balancer for the Service, and map it to its automatically assigned NodePort. This is the most widely used method in production environments.
 
-- **What is Ingress?**
+- **What is Ingress ?**
 
   Ingress isn’t a type of Service, but rather an object that acts as a reverse proxy and single entry-point to your cluster that routes the request to different services. The most basic Ingress is the NGINX Ingress Controller, where the NGINX takes on the role of reverse proxy, while also functioning as SSL.
 
@@ -98,10 +98,6 @@
   If you want to configure your application setup to wait until the DB is up and running before it starts: you will have a regular container with your app and an init container that sends some discovery commands to DB.
 
   So once it gets a response from DB, it will exit and the regular app container can start.
-
-
-
-
 
 
 
