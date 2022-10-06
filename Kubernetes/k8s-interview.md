@@ -46,7 +46,9 @@
 
 - **What is Ingress network, and how does it work?**
 
-  Ingress network is a collection of rules that acts as an entry point to the Kubernetes cluster. This allows inbound connections, which can be configured to give services externally through reachable URLs, load balance traffic, or by offering name-based virtual hosting. So, Ingress is an API object that manages external access to the services in a cluster, usually by HTTP and is the most powerful way of exposing service.
+  Ingress network is a collection of rules that acts as an entry point to the Kubernetes cluster. This allows inbound connections, which can be configured to give services externally through reachable URLs, load balance traffic, or by offering name-based virtual hosting. 
+  
+  So, Ingress is an API object that manages external access to the services in a cluster, usually by HTTP and is the most powerful way of exposing service.
 
   
 - **What is Liveness Probe and Readiness Probe**
@@ -153,6 +155,12 @@
     kubectl rollout history deployment <deployment-name>
     kubectl rollout undo --to-revision=<number of specific version> deployment < deployment-name>
   ```
+
+- **If a container keeps crashing, how do you troubleshoot?**
+
+  You can use --previous option with logs command to see the logs of a crashed container.
+  
+  ```kubectl logs --previous```
 
 
 ### Contributors

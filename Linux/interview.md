@@ -27,7 +27,7 @@
 
 - **I have a server where httpd service is running, I want that httpd should be running on,cpu core 2 only.(CPUAffinity=2)**
 
-    So here it want to bind httpd to specific CPU. To achieve this we need to change CPU Affinity value in httpd service file which can be found on either ```/usr/lib/systemd/system/httpd.service``` or ```/etc/systemd/system/httpd.service```
+    So here I want to bind httpd to specific CPU. To achieve this we need to change CPU Affinity value in httpd service file which can be found on either ```/usr/lib/systemd/system/httpd.service``` or ```/etc/systemd/system/httpd.service```
 
 - **I want to restart a service only if the service is already running If service is in a stopped state, the command should do nothing.**
 
@@ -61,7 +61,7 @@
 
     A RAM upgrade is necessary if the server shows consistent high memory usage or the average usage for the day is more than 90% as such a high usage can deplete the available free memory at times for a busy server.
 
-- *How can you identify listening ports on a Centos EC2 instance without AWS console or ssh access?*
+- **How can you identify listening ports on a Centos EC2 instance without AWS console or ssh access?**
 
     Bash has been able to access TCP and UDP ports for a while.
     So for this we can use
