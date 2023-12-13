@@ -7,14 +7,14 @@ But in the case of hard link, it is entirely opposite. Even if you delete the or
 ### **A soft link**
 -   Allows you to link between directories
 -   Has different inode number and file permissions than original file
--   Permissions will not be updated
--   Has only the path of the original file, not the contents
+-   Permissions will not be updated if we change the permissions of source file
+-   Soft link has only the path of the original file, not the contents
 
 ### **A Hard link**
 -   Can't link directories
 -   Has the same inode number and permissions of original file
 -   Permissions will be updated if we change the permissions of source file
--   Has the actual contents of original file, so that you still can view the contents, even if the original file moved or removed.
+-   Hard link has the actual contents of original file, so that you still can view the contents, even if the original file moved or removed.
 
 
 ## How to create Soft Link
