@@ -79,7 +79,7 @@
 
 - **What is difference between ReplicaSet and ReplicationController?**
 
-  Replica Set and Replication Controller both are almost the same thing. Both of them ensure that a specified number of pod replicas are running at any given time. The difference comes with the usage of selectors to replicate pods. Replica Set use Set-Based selectors while replication controllers use Equality-Based selectors.
+  Replica Set and Replication Controller both are almost the same thing. Both of them ensure that a specified number of pod replicas are running at any given time. The difference comes with the usage of selectors to replicate pods. **Replica Set use Set-Based selectors while replication controllers use Equality-Based selectors.**
 
   ReplicaSets can be used independently, today it’s mainly used by Deployments as a mechanism to orchestrate pod creation, deletion, and updates.
 
