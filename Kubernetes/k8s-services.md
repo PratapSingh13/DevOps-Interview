@@ -49,7 +49,7 @@ spec:
 
 -   Pods wants to talk directly specific pod
 
--   Use case is for Stateless application like databases.
+-   Use case is for Stateful application like databases.
 
 **4.  LoadBalancer**
 -   Using a LoadBalancer service type automatically deploys an external load balancer. This external load balancer is associated with a specific IP address and routes external traffic to a Kubernetes service in your cluster.
