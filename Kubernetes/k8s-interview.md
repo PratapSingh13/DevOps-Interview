@@ -89,6 +89,9 @@
   Here in **ReplicationController** example it selects all resources with key equal to *environment* and value equals to *production*
   But in **ReplicaSet** example it selects all resources with key equal to *environment* and value equals to *prod* or *test*
 
+  > [!IMPORTANT]  
+  > Replication Controller and ReplicaSet don't provide rolling updates or rollback while Deployment is a higher-level abstraction that manages ReplicaSets and Pods and it supports rolling updates, rollback, scaling and version history.
+
 - **How to delete replication controller but do not delete pods from that replication controller?**
 
   ```kubectl delete rc --cascade=false <replicationControllerName> --namespace```
