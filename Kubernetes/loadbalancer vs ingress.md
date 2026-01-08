@@ -39,15 +39,15 @@ spec:
 **Pros**
 
 ✅ Simple to set up \
-✅ Good for non-HTTP protocols (DB, TCP, gRPC*) \
-✅ No extra components needed \
+✅ Good for non-HTTP protocols (DB, TCP, gRPC*)\
+✅ No extra components needed 
 
 
 **Cons**
 
 ❌ Expensive (one LB per service) \
 ❌ No path/host routing \
-❌ Limited TLS handling \
+❌ Limited TLS handling
 
 ### Ingress
 
@@ -97,13 +97,13 @@ spec:
 ✅ Cost-effective \
 ✅ Path & host routing \
 ✅ Centralized TLS \
-✅ Ideal for web apps \
+✅ Ideal for web apps
 
 **Cons**
 
 ❌ HTTP/HTTPS only \
 ❌ Requires Ingress Controller \
-❌ Advanced features need annotations \
+❌ Advanced features need annotations
 
 **When to Use What?**
 
