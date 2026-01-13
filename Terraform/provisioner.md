@@ -39,7 +39,7 @@ tags {
 }
 ```
 
-**remote-exec** provisioner helps invoke a script on the remote resource once it is created. We can provide a list of command strings which are executed in the order they are provided. We can also provide scripts with a local path which is copied remotely and then executed on the remote resource. file provisioner is used to copy files or directories to a remote resource. We can’t provide any arguments to script in remote-exec provisioner. We can achieve this by copying script from file provisioner and then execute a script using a list of commands.
+**remote-exec** provisioner helps invoke a script on the remote resource once it is created. We can provide a list of command strings which are executed in the order they are provided. We can also provide scripts with a local path which is copied remotely and then executed on the remote resource. file provisioner is used to copy files or directories to a remote resource. We can’t provide any arguments to script in the remote-exec provisioner. We can achieve this by copying the script from the file provisioner and then executing a script using a list of commands.
 
 Provisioner which execute commands on a resource (like running a script or copying file)needs to connect to the resource which can be done through SSH. We can define connection method per resource or per provisioner if we want them to connect using different SSH parameters.
 
@@ -69,13 +69,13 @@ resource "aws_instance" "testInstance" {
 }
 ```
 
-**Why you should avoid provisioner or use them only as a last resort ?**
+**Why should you avoid provisioners or use them only as a last resort ?**
 
-First, Terraform cannot model the actions of provisioners as part of a plan, as they can in principle take any action (the possible commands is “limitless”) which means you won’t get anything about the provisioners in your tfstate. Even if you have them in null resources like I did.
+First, Terraform cannot model the actions of provisioners as part of a plan, as they can in principle take any action (the possible commands are “limitless”), which means you won’t get anything about the provisioners in your tfstate even if you have them in null resources, as I did.
 
-Second, as you I mentioned above file and remote-exec provisioners require connection credentials to function and that adds unnecessary complexity to the Terraform configuration (Mixing day 1 and day 2 tasks).
+Second, as I mentioned above, file and remote-exec provisioners require connection credentials to function and that adds unnecessary complexity to the Terraform configuration (Mixing day 1 and day 2 tasks).
 
-So as HashiCorp recommends in the docs try using other techniques first, and use provisioners only if there is no other option but you should know them especially if you are planning to pass the Terraform certification exam.
+So, as HashiCorp recommends in the docs, try using other techniques first, and use provisioners only if there is no other option, but you should know them, especially if you are planning to pass the Terraform certification exam.
 
 ### Contributors
 [![Yogendra Pratap Singh][yogendra_avatar]][yogendra_homepage]<br/>[Yogendra Pratap Singh][yogendra_homepage] 
