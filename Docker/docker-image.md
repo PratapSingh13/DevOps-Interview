@@ -15,7 +15,7 @@
 
     ```docker image history <image_name>```
 
-- **How to delete docker image
+- **How to delete docker image**
 
     ```docker rmi <image>```
 
