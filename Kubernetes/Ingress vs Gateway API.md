@@ -13,9 +13,17 @@ It works at **Layer 7 (HTTP)** and needs an **Ingress Controller (like NGINX or 
 * One ingress can route traffic to multiple services
 * Older and limited for advanced use cases
 
+
+**Problems with Ingress**
+* No support for multi-tenancy
+* No support for Namespace isolation
+* No RBAC for features
+* No resource isolation
+* No support for CORS
+
 ## Gateway API
 
-**Gateway API** is a **Kubernetes networking API** that defines **how traffic enters, exits, and moves inside a Kubernetes cluster** in a **standard and extensible way**.
+**Gateway API** is a **Kubernetes networking API** that defines **how traffic enters, exits, and moves inside a Kubernetes cluster** in a **standard and extensible way** it works on **Layer-4 and Layer-7**.
 
 It is designed to replace Ingress and solve its limitations by:
 * Supporting multiple protocols
