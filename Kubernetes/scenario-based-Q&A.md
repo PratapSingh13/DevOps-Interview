@@ -140,6 +140,7 @@ kubectl describe quota -n <namespace>
 ---
 
 **2. An application pod keeps restarting with CrashLoopBackOff. What steps will you follow to identify and fix the issue?**
+
 **Answer-** The container is repeatedly crashing shortly after starting. Kubernetes attempts to restart the container, but it fails again, creating a loop where the time between restarts increases exponentially (10s, 20s, 40s... up to 5 minutes) to avoid overloading the node. 
 
 ### 🔍 Step-by-Step Troubleshooting Approach
@@ -220,6 +221,7 @@ Exit Code: 137
 ---
 
 **3. Pods are running, but the application is not accessible via the Service. What will you check?**
+
 **Answer-** The Service exists, but traffic is not correctly reaching the pods or the application inside the pods.
 
 ### 🔍 Step-by-Step Troubleshooting Flow
@@ -317,3 +319,79 @@ kubectl exec -it <test-pod> -- curl http://<service-name>:<port>
 
 #### 7️⃣ Check Network Policies
 #### 8️⃣ Check kube-proxy / CNI Issues
+
+---
+
+**4. You updated a ConfigMap, but the application still uses old values. Why is this happening, and how do you fix it?**
+
+**Answer-** ConfigMap updates are not automatically propagated to running containers when they are consumed as environment variables or when the application does not reload configuration dynamically.
+
+### 🏆 One-Line Summary (For Interviews)
+
+ConfigMap changes don’t automatically reflect in running pods because environment variables are static and applications often don’t reload configs. The fix is restarting pods, using volume mounts with reload logic, or triggering restarts via checksum annotations.
+
+### 🔍 Step-by-Step Troubleshooting Approach
+
+#### 1️⃣ ConfigMap Used as Environment Variables
+
+**Example**
+
+```yaml
+envFrom:
+- configMapRef:
+    name: app-config
+```
+
+**Why it happens:**
+- Environment variables are read only at container startup
+- Updating ConfigMap does NOT update env vars in running pods
+
+#### 2️⃣ Application Does Not Reload Config Files
+
+**Example:**
+
+```yaml
+volumeMounts:
+- name: config
+  mountPath: /etc/config
+```
+
+**Even though Kubernetes updates the mounted file:**
+- Application may cache config in memory
+- App does not watch file changes
+
+#### 3️⃣ Pods Were Not Restarted
+- Kubernetes does not restart pods automatically on ConfigMap change
+- Old pods keep running with old config
+
+#### 4️⃣ Wrong ConfigMap or Namespace
+- ConfigMap updated in different namespace
+- Pod still points to old ConfigMap name
+
+#### 5️⃣ Immutable ConfigMap
+```yaml
+immutable: true
+```
+
+- Updates are silently ignored
+- Requires deletion & recreation
+
+### 🛠️ How to Fix It
+
+#### ✅ Fix 1: Restart Pods
+
+```bash
+kubectl rollout restart deployment <deployment-name> -n <namespace>
+```
+✔ Forces pods to reload updated config
+
+#### ✅ Fix 2: Use ConfigMap as Volume + App Reload Logic
+```yaml
+volumes:
+- name: config
+  configMap:
+    name: app-config
+```
+
+✔ Kubernetes updates files automatically \
+❌ App must reload config or support SIGHUP
