@@ -1,6 +1,6 @@
 ## 🧩 Beginner / Foundation Scenarios
 
-1. A pod is stuck in the Pending state. How will you troubleshoot? What are the possible causes?
+**1. A pod is stuck in the Pending state. How will you troubleshoot? What are the possible causes?**
    
 **Answer-** A pod in Pending means **Kubernetes has accepted the pod, but it has not been scheduled onto any node.**
 
@@ -24,6 +24,7 @@ kubectl describe pod <pod-name> -n <namespace>
 0/5 nodes are available: insufficient cpu / insufficient memory
 ```
 #### How to fix:
+
 •	Reduce resource requests \
 •	Add more nodes \
 •	Enable Cluster Autoscaler
@@ -35,6 +36,7 @@ node(s) didn't match node selector
 ```
 
 #### Why it happens:
+
 •	Pod has nodeSelector, nodeAffinity, or podAffinity rules \
 •	No node matches the required labels
 
@@ -42,7 +44,8 @@ node(s) didn't match node selector
 kubectl get nodes --show-labels
 ```
 
-#### Fix:
+**Fix:**
+
 •	Update pod selectors \
 •	Add correct labels to nodes
 
@@ -58,6 +61,7 @@ node(s) had taint {key=value:NoSchedule}
 ```
 
 #### Why it happens:
+
 •	Node is tainted \
 •	Pod does not tolerate the taint
 
@@ -82,6 +86,7 @@ pod has unbound immediate PersistentVolumeClaims
 ```
 
 Why it happens:
+
 •	PVC exists but no matching PV \
 •	StorageClass misconfigured
 
@@ -92,6 +97,7 @@ kubectl get pv
 ```
 
 **Fix:**
+
 •	Create PV \
 •	Fix StorageClass \
 •	Ensure correct access mode & size
@@ -99,6 +105,7 @@ kubectl get pv
 🔹 **Pod Requests Special Resources**
 
 **Examples:**
+
 •	GPUs \
 •	HugePages \
 •	Custom device plugins
@@ -109,6 +116,7 @@ Insufficient nvidia.com/gpu
 ```
 
 **Fix:**
+
 •	Add suitable nodes \
 •	Reduce special resource requests
 
@@ -125,5 +133,6 @@ kubectl describe quota -n <namespace>
 ```
 
 **Fix:**
+
 •	Increase quota \
 •	Reduce pod requests
