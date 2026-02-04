@@ -23,8 +23,8 @@ kubectl describe pod <pod-name> -n <namespace>
 ```
 #### How to fix:
 
-- Reduce resource requests \
-- Add more nodes \
+- Reduce resource requests
+- Add more nodes
 - Enable Cluster Autoscaler
 
 🔹 **Node Selector / Affinity Mismatch**
@@ -35,7 +35,7 @@ node(s) didn't match node selector
 
 #### Why it happens:
 
-- Pod has nodeSelector, nodeAffinity, or podAffinity rules \
+- Pod has nodeSelector, nodeAffinity, or podAffinity rules
 - No node matches the required labels
 
 ```bash
@@ -44,7 +44,7 @@ kubectl get nodes --show-labels
 
 **Fix:**
 
-- Update pod selectors \
+- Update pod selectors
 - Add correct labels to nodes
 
 ```bash
@@ -60,7 +60,7 @@ node(s) had taint {key=value:NoSchedule}
 
 #### Why it happens:
 
-- Node is tainted \
+- Node is tainted
 - Pod does not tolerate the taint
 
 **Check taints:**
@@ -85,7 +85,7 @@ pod has unbound immediate PersistentVolumeClaims
 
 Why it happens:
 
-- PVC exists but no matching PV \
+- PVC exists but no matching PV
 - StorageClass misconfigured
 
 **Check**
@@ -96,16 +96,16 @@ kubectl get pv
 
 **Fix:**
 
-- Create PV \
-- Fix StorageClass \
+- Create PV
+- Fix StorageClass
 - Ensure correct access mode & size
 
 🔹 **Pod Requests Special Resources**
 
 **Examples:**
 
-- GPUs \
-- HugePages \
+- GPUs
+- HugePages
 - Custom device plugins
 
 **Symptom:**
@@ -115,7 +115,7 @@ Insufficient nvidia.com/gpu
 
 **Fix:**
 
-- Add suitable nodes \
+- Add suitable nodes
 - Reduce special resource requests
 
 🔹 **Namespace ResourceQuota Limit Reached**
@@ -132,7 +132,7 @@ kubectl describe quota -n <namespace>
 
 **Fix:**
 
-- Increase quota \
+- Increase quota
 - Reduce pod requests
 
 ---
