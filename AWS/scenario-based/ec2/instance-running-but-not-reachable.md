@@ -8,8 +8,8 @@
 
 **Goal:** Confirm instance state
 
-✔ **Instance state:** Running
-✔ **System Status Check:** Passed
+✔ **Instance state:** Running \
+✔ **System Status Check:** Passed \
 ✔ **Instance Status Check:** Passed
 
 **If failed:**
