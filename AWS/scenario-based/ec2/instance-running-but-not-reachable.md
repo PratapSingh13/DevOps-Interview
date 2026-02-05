@@ -4,7 +4,7 @@
 
 ### 🔍 Step-by-Step Troubleshooting Approach
 
-#### 1️⃣ — Instance & AWS Health Checks
+#### 1️⃣ Instance & AWS Health Checks
 
 **Goal:** Confirm instance state
 
@@ -16,7 +16,7 @@
 - System check failed → AWS host issue → **Stop/Start or Recover**
 - Instance check failed → OS issue → **SSM / volume recovery**
 
-#### 2️⃣ — Identify Connectivity Type
+#### 2️⃣ Identify Connectivity Type
 
 **Goal:** Are you connecting via public or private access?
 🔹 Public access → Internet → EC2
