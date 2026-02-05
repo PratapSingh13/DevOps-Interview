@@ -18,17 +18,19 @@
 
 #### 2️⃣ Identify Connectivity Type
 
-**Goal:** Are you connecting via public or private access?
-🔹 Public access → Internet → EC2
+**Goal:** Are you connecting via public or private access? \
+🔹 Public access → Internet → EC2 \
 🔹 Private access → Bastion / VPN / Direct Connect
 
 #### 3️⃣ Network Layer Issues
 
 **❌ No Public IP / Elastic IP**
+
 - Instance in public subnet but no public IP attached
 - Elastic IP not associated
 
 **✅ Fix:**
+
 Attach a public IP or use **Elastic IP**
 
 **❌ Route Table Misconfiguration**
@@ -42,18 +44,22 @@ Ensure the route table has:
 ```
 
 **❌ Internet Gateway Missing**
+
 - VPC has no IGW attached
 
 **✅ Fix:**
+
 Attach an **IGW** to the **VPC**
 
 #### 4️⃣ Security Layer Issues
 
 **❌ Security Group Blocking Traffic**
+
 - SSH (22) / HTTP (80) / HTTPS (443) not allowed
 - Source IP not allowed
 
 **✅ Fix:**
+
 Allow required ports from the correct CIDR:
 
 ```code
@@ -62,11 +68,13 @@ HTTP → 80 → 0.0.0.0/0
 ```
 
 **❌ Network ACL Blocking Traffic**
+
 - Inbound or outbound rules deny traffic
 
 #### 5️⃣ OS / Instance-Level Issues
 
 **❌ Disk Full or CPU Exhausted**
+
 - Root disk full → SSH fails
 - CPU at 100%
 
@@ -77,10 +85,12 @@ HTTP → 80 → 0.0.0.0/0
 #### 6️⃣ AWS Health & Status Checks
 
 **❌ Failing EC2 Status Checks**
+
 - System status check failure → AWS infrastructure issue
 - Instance status check failure → OS issue
 
 **✅ Fix:**
+
 - Stop/start instance
 - Recover instance
 - Rebuild from AMI
