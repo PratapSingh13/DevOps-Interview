@@ -74,3 +74,11 @@ kube-apiserver also makes sure that configurations in etcd match with configurat
 
 - Container Runtime is a software that is responsible for running the containers on the worker node.
 - It basically tells the node what to do, for example, if we wish to create a pod, then our request is received by the API server, and then it will forward it to the control manager, which will then forward it to the kubelet on the node where the pod is to be created.
+
+---
+
+### Contributors
+[![Yogendra Pratap Singh][yogendra_avatar]][yogendra_homepage]<br/>[Yogendra Pratap Singh][yogendra_homepage] 
+
+  [yogendra_homepage]: https://www.linkedin.com/in/yogendra-pratap-singh-41630716b/
+  [yogendra_avatar]: https://img.cloudposse.com/75x75/https://github.com/PratapSingh13.png
