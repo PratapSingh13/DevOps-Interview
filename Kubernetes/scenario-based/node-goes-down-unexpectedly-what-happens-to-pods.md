@@ -9,9 +9,9 @@
 - The kubelet on the node stops responding.
 - The control plane marks the node as NotReady.
 
-  #### 2️⃣ Kubernetes Waits (Grace Period)
+#### 2️⃣ Kubernetes Waits (Grace Period)
 
-  Kubernetes does **not immediately delete pods**
+- Kubernetes does **not immediately delete pods**
 
 **Default timings:**
 
