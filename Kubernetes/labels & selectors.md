@@ -1,3 +1,5 @@
+# Labels & Selectors
+
 - **What are labels?**
 Labels are the mechanism used to organize Kubernetes objects. A label is a key-value pair with certain restrictions concerning length and allowed values but without any pre-defined meaning. You're free to choose labels as you see fit.
 
@@ -54,6 +56,7 @@ spec:
 
 ```kubectl label pods <pod-name>  <labelKey->```
 
+---
 
 ### Contributors
 [![Yogendra Pratap Singh][yogendra_avatar]][yogendra_homepage]<br/>[Yogendra Pratap Singh][yogendra_homepage] 
