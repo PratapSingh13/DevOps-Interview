@@ -1,4 +1,4 @@
-**An EC2 instance is running but not reachable. What could be the reasons?**
+## An EC2 instance is running but not reachable. What could be the reasons?
 
 **Answer-** If an EC2 instance is running but not reachable, I first check **networking (public IP, route table, IGW), then security (security group and NACL), followed by OS-level issues like SSH service, disk space, or CPU exhaustion.** I also verify EC2 status checks and use SSM or EC2 Instance Connect for recovery if direct SSH is not possible.
 
