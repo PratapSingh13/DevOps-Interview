@@ -89,6 +89,7 @@ volumeMounts:
 - Restart pods (or rely on volume updates)
 
 ✔ No hardcoded credentials
+
 ✔ Zero manual intervention
 
 ---
