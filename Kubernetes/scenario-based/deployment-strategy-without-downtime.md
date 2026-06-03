@@ -1,4 +1,4 @@
-**You need to deploy a new version without downtime. Which deployment strategy will you use and why?**
+## You need to deploy a new version without downtime. Which deployment strategy will you use and why?
 
 **Answer-** For zero downtime, I primarily use Rolling Updates with strict readiness probes and maxUnavailable set to zero. For high-risk or high-traffic releases, I prefer Blue-Green or Canary deployments to ensure safe rollout and instant rollback.
 
