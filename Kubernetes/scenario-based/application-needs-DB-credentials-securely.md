@@ -1,4 +1,4 @@
-**An application needs DB credentials securely. How will you store and inject secrets in Kubernetes?**
+## An application needs DB credentials securely. How will you store and inject secrets in Kubernetes?
 
 **Answer-** I store DB credentials in **Kubernetes Secrets** (or an external secret manager) and inject them into pods using **environment variables or mounted volumes**, while restricting access using **RBAC**, encryption at rest, and secret rotation.
 
@@ -89,6 +89,7 @@ volumeMounts:
 - Restart pods (or rely on volume updates)
 
 ✔ No hardcoded credentials
+
 ✔ Zero manual intervention
 
 ---

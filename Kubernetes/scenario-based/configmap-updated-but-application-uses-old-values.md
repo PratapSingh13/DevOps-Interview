@@ -1,4 +1,4 @@
-**You updated a ConfigMap, but the application still uses old values. Why is this happening, and how do you fix it?**
+## You updated a ConfigMap, but the application still uses old values. Why is this happening, and how do you fix it?
 
 **Answer-** ConfigMap updates are not automatically propagated to running containers when they are consumed as environment variables or when the application does not reload configuration dynamically.
 

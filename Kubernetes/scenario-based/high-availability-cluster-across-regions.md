@@ -1,4 +1,4 @@
-**You need high availability across regions. How will you design Kubernetes architecture?**
+## You need high availability across regions. How will you design Kubernetes architecture?
 
 **Answer-** Kubernetes **does not support multi-region clusters natively** in a reliable way.
 For true regional HA, I will design **multiple clusters (one per region)** and handle traffic, data, and failover externally.
