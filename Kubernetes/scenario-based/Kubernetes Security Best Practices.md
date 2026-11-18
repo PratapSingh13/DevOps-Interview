@@ -23,7 +23,7 @@ As we run our containers from images, so building the secure image in our CI/CD 
 
 ## 2. Run as non-root user
 
-If we have vulnerabilty with image amd running with root privilage then attacker can exploit it and can get root access to the node. 
+If we have a vulnerability with an image and run with root privilage then attacker can exploit it and can get root access to the node. 
 
 **Best Practices**
 - Run as non-root user
